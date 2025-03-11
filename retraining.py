@@ -33,8 +33,7 @@ pipeline = Pipeline(steps=[
 # HYPERPARAMETER OPTIMIZATION
 # --------------------------------------------
 param_grid_logreg = {
-    'classifier__C': [0.1, 1, 10, 100],
-    'classifier__penalty': ['l1', 'l2']
+    'classifier__C': [0.1, 1, 10, 100]
 }
 
 # --------------------------------------------

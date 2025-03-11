@@ -1,0 +1,39 @@
+name: CI and CD data model
+
+on:
+  push:
+    branches:
+      - staging
+  pull_request:
+    branches:
+      - staging
+
+jobs:
+  retrain_the_model:
+    runs-on: ubuntu-latest
+    container: docker://dvcorg/cml:latest
+    env:
+      repo_token: ${{ secrets.GITHUBTOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Upgrade pip
+        run: pip install --upgrade pip
+
+      - name: Install requirements file
+        run:
+          pip3 install -r requirements.txt
+
+      - name: Execute the training model
+        run: |
+          python3 retraining.py
+
+      - name: Generating report
+        run: |
+          echo "## Model metrics" > report.md
+          cat metrics.txt >> report.md
+          
+          echo "## Data visualization" >> report.md
+          cml-publish feature_importance.png --md >> report.md
+          
+          cml-send-comment report.md
