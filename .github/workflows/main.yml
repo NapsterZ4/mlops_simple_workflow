@@ -3,7 +3,7 @@ name: CI and CD data model
 on:
   push:
     branches:
-      - staging
+      - develop
   pull_request:
     branches:
       - staging
