@@ -10,3 +10,5 @@ python-dateutil
 pytz
 scikit-learn
 scipy
+joblib
+fastapi
