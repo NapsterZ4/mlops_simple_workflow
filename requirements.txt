@@ -13,3 +13,4 @@ scipy
 joblib
 fastapi
 uvicorn
+streamlit
