@@ -74,5 +74,5 @@ jobs:
               docker rm breast-cancer
             fi
 
-            docker pull ${{ secrets.DOCKER_USERNAME }}/mlops_simple_workflow:v1
-            docker run -d --name breast-cancer -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/mlops_simple_workflow:v1
+            docker pull ${{ secrets.DOCKER_USERNAME }}/mlops_simple_workflow:dev
+            docker run -d --name breast-cancer -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/mlops_simple_workflow:dev
