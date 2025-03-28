@@ -15,7 +15,7 @@ app = FastAPI(
 model = joblib.load("model/logistic_regression_model.pkl")
 
 
-@app.post("/api/v1/predict-breast-cancer", tags=["breast-cancer"])
+@app.post("/api/v2/predict-breast-cancer", tags=["breast-cancer"])
 async def predict(
     radius_mean: float,
     texture_mean: float,
