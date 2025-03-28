@@ -69,10 +69,10 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
             docker login -u '${{ secrets.DOCKER_USERNAME }}' -p '${{ secrets.DOCKER_PASSWORD }}'
-            if docker ps --all | grep streamlit-breast-cancer; then
+            if docker ps --all | grep breast-cancer; then
               docker stop breast-cancer
               docker rm breast-cancer
             fi
 
             docker pull ${{ secrets.DOCKER_USERNAME }}/mlops_simple_workflow:dev
-            docker run -d --name streamlit-breast-cancer -p 8501:8501 ${{ secrets.DOCKER_USERNAME }}/mlops_simple_workflow:dev
+            docker run -d --name breast-cancer -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/mlops_simple_workflow:dev

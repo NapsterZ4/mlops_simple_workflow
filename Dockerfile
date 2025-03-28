@@ -8,5 +8,5 @@ RUN pip install -r requirements.txt
 COPY . /app
 
 EXPOSE 8501
-CMD ["streamlit", "run", "app.py"]
+CMD ["python", "endpoints.py"]
 # CMD ["uvicorn", "endpoints:app", "--host", "0.0.0.0", "--port", "8000"]
